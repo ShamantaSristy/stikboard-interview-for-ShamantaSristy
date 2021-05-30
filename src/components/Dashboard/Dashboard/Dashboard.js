@@ -83,7 +83,7 @@ const Dashboard = () => {
                 </tbody>
             </Table>
             :
-            <div className="d-flex justify-content-center"><CircularProgress /></div>
+            <div className="d-flex justify-content-center pt-5 mt-5"><CircularProgress /></div>
             }
         </Container>
     );

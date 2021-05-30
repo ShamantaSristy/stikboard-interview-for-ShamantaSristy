@@ -74,7 +74,6 @@ const handleUserGender = (event) => {
                         </clipPath>
                     </defs>
                 </svg>
-                {/* <Button onClick={handleLogOut}>Log Out</Button> */}
             </div>
            </div>
 
