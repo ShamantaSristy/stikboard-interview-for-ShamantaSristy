@@ -1,11 +1,15 @@
-import React, { useEffect, useState } from 'react';
-import { Container, Table } from 'react-bootstrap';
+import React, { useContext, useEffect, useState } from 'react';
+import { Button, Container, Table } from 'react-bootstrap';
 import DashboardTableData from '../DashboardTableData/DashboardTableData';
 // import InfoModal from '../InfoModal/InfoModal';
 import { CircularProgress } from '@material-ui/core';
+import { UserContext } from '../../../App';
+import { useHistory } from 'react-router';
 
 const Dashboard = () => {
+    const [loggedInUser, setLoggedInUser] = useContext(UserContext);
     const [launches, setLaunches] = useState([]);
+    const history = useHistory();
 
     useEffect(() => {
         fetch('https://api.spacexdata.com/v3/launches')
@@ -14,7 +18,14 @@ const Dashboard = () => {
                 setLaunches(data);
                 // console.log(data);
             })
-    }, [])
+    }, []);
+
+    const handleLogOut =() => {
+        sessionStorage.clear();
+        history.push("/login");
+        console.log('clicked');
+    }
+    
 
     return (
         <Container>
@@ -37,8 +48,11 @@ const Dashboard = () => {
                         </clipPath>
                     </defs>
                 </svg>
-
+                <Button onClick={handleLogOut}>Log Out</Button>
             </div>
+            {/* <div>
+               
+            </div> */}
             {/* <InfoModal></InfoModal> */}
 
             <Table striped bordered hover>

@@ -18,12 +18,21 @@ const Login = () => {
         firebase.initializeApp(firebaseConfig);
     }
 
+    const setUserToken = () =>{
+        firebase.auth().currentUser.getIdToken(/* forceRefresh */ true).then(function(idToken) {
+          sessionStorage.setItem('token',idToken)
+        }).catch(function(error) {
+          // Handle error
+        });
+      }
+
     const handleGoogleSignIn = () => {
         var provider = new firebase.auth.GoogleAuthProvider();
         firebase.auth().signInWithPopup(provider).then(function(result) {
             const {displayName, email} = result.user;
             const signedInUser = {...loggedInUser ,name: displayName, email: email} 
             setLoggedInUser(signedInUser);
+            setUserToken();
             history.replace(from);
           }).catch(function(error) {
             const errorMessage = error.message;
