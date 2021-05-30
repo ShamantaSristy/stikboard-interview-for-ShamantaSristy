@@ -1,13 +1,13 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Button, Container, Table } from 'react-bootstrap';
 import DashboardTableData from '../DashboardTableData/DashboardTableData';
 // import InfoModal from '../InfoModal/InfoModal';
 import { CircularProgress } from '@material-ui/core';
-import { UserContext } from '../../../App';
+// import { UserContext } from '../../../App';
 import { useHistory } from 'react-router';
 
 const Dashboard = () => {
-    const [loggedInUser, setLoggedInUser] = useContext(UserContext);
+    // const [loggedInUser, setLoggedInUser] = useContext(UserContext);
     const [launches, setLaunches] = useState([]);
     const history = useHistory();
 
