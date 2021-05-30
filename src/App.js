@@ -18,17 +18,17 @@ function App() {
       <Router>
         <Switch>
           {/* <Route exact path="/">
-         <Dashboard></Dashboard>
-          </Route> */}
-          <Route path="/login">
          <Login></Login>
-          </Route>
+          </Route> */}
           <PrivateRoute exact path="/">
           <Dashboard></Dashboard>
           </PrivateRoute>
           <PrivateRoute path="/dashboard">
           <Dashboard></Dashboard>
           </PrivateRoute>
+          <Route path="/login">
+         <Login></Login>
+          </Route>
         </Switch>
       </Router>
       </UserContext.Provider>
