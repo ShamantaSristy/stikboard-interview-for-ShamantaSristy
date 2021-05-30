@@ -38,7 +38,7 @@ const handleUserGender = (event) => {
         const signedInUser = {...loggedInUser ,...userDetails} 
         setLoggedInUser(signedInUser);
   
-         const url = 'http://localhost:5500/addUsers';
+         const url = 'https://limitless-beyond-48550.herokuapp.com/addUsers';
         // console.log(orderData);
         fetch(url, {
             method: 'POST',
